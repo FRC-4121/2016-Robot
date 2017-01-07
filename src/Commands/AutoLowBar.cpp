@@ -6,6 +6,13 @@
 #include "Commands/cmdAngleShooterTrajectorySet.h"
 #include "Commands/cmdAngleShooterMove.h"
 #include "Commands/cmdStopAngleShooter.h"
+#include "Commands/AutoSpin.h"
+#include "Commands/AutoDriveTalonsStop.h"
+
+#include "Commands/cmdShooterOff.h"
+#include "Commands/cmdServoDownPosition.h"
+#include "Commands/cmdServoFirePosition.h"
+#include <Commands/cmdShoot.h>
 
 AutoLowBar::AutoLowBar()
 {

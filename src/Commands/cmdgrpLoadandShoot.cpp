@@ -5,7 +5,10 @@
 #include "Commands/cmdServoDownPosition.h"
 #include "Commands/cmdServoFirePosition.h"
 #include <Commands/cmdShoot.h>
+<<<<<<< HEAD
 #include <Commands/cmdFeedBall.h>
+=======
+>>>>>>> origin/JrJrCressman's-Branch
 
 cmdgrpLoadandShoot::cmdgrpLoadandShoot()
 {

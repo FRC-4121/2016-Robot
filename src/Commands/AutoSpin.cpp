@@ -16,8 +16,13 @@ void AutoSpin::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void AutoSpin::Execute()
 {
+<<<<<<< HEAD
 	//Drives sides in opposite directions to spin at 70%
 	tankChassis->AutoDriveTalons(-0.7, -0.7, 0.7, 0.7);
+=======
+	//Drives sides in opposite directions to spin at 30%
+	tankChassis->AutoDriveTalons(-0.3, -0.3, 0.3, -0.3);
+>>>>>>> origin/JrJrCressman's-Branch
 }
 
 // Make this return true when this Command no longer needs to run execute()
