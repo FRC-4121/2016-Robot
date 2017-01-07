@@ -27,7 +27,7 @@ void Shooter::Shoot(float shootSpeed)
 	// Purpose:
 	//To shoot the robot at a given fire speed
 	//Inputs: fire - takes a floating point value from -1 to 1, with 1 indicating full speed and .5 half speed.
-	if((CommandBase::ballShooter->getLoaderServo()->Get())>=0.45 && (CommandBase::ballShooter->getLoaderServo()->Get())<=0.55)
+	if((CommandBase::ballShooter->getLoaderServo()->Get())>=0 && (CommandBase::ballShooter->getLoaderServo()->Get())<=0.05)
 	{
 		LeftShooterSRXTalon->Set(shootSpeed);
 		RightShooterSRXTalon->Set(shootSpeed);
@@ -56,27 +56,27 @@ void Shooter::LoadBall()
 
 	float servoPosition=LoaderServo->Get();
 
-	if(servoPosition>=0.45 && servoPosition<=0.55)
+	if(servoPosition>=0.0 && servoPosition<=0.08)
 	{
-		LoaderServo->Set(1);
+		LoaderServo->Set(0.3);
 	}
-	else if(servoPosition>=0.90 && servoPosition<=1)
+	else if(servoPosition>=0.25 && servoPosition<=0.35)
 	{
-		LoaderServo->Set(0.5);
+		LoaderServo->Set(0.04);
 	}
 	else
 	{
-		LoaderServo->Set(0.5);
+		LoaderServo->Set(0.04);
 	}
 }
 
 void Shooter::ServoDownPosition()
 {
-	LoaderServo->Set(0.5);
+	LoaderServo->Set(0.04);
 }
 void Shooter::ServoFirePosition()
 {
-	LoaderServo->Set(1);
+	LoaderServo->Set(0.3);
 }
 
 

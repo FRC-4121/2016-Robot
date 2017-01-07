@@ -26,7 +26,7 @@ void  DataDisplay::DisplayAll()
 
 	bool CanShoot;
 
-		if((CommandBase::ballShooter->getLoaderServo()->Get())>=0.45 && (CommandBase::ballShooter->getLoaderServo()->Get())<=0.55)
+		if((CommandBase::ballShooter->getLoaderServo()->Get())>=0 && (CommandBase::ballShooter->getLoaderServo()->Get())<=0.08)
 		{
 			CanShoot=true;
 		}

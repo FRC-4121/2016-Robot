@@ -10,7 +10,7 @@ AutoMoat::AutoMoat()
 	AddSequential (new Delay(1));							//waits one second
 	AddSequential (new cmdAngleShooterMove(0.1)); 			//locks shooter to upper position
 	AddSequential (new AutoDriveTalonsFastBackwards()); 	//drives backwards fast
-	AddSequential (new Delay(3)); 							//drives for 3 seconds
+	AddSequential (new Delay(DELAY_MOVE_DEFINE)); 							//drives for 3 seconds
 	AddSequential (new AutoStop());							//stops
 
 }

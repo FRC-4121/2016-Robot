@@ -49,12 +49,12 @@ OI::OI()
 	driveStickL = new Joystick(JOYSTICKLEFT);
 
 	feedBall = new JoystickButton(driveStickL, L_THUMB_BUTTON_DOWN_fFEEDBALL);
-	feedBall->WhenPressed(new cmdFeedBall(-0.6));
+	feedBall->WhenPressed(new cmdFeedBall(-0.6)); //change here possibly
 	feedBall->WhenReleased(new cmdShooterOff());
 
 
 	spitBall = new JoystickButton(driveStickL, L_FRONT_SIDE_RIGHT_fSPITBALL);
-	spitBall->WhenPressed(new cmdShoot(0.3));
+	spitBall->WhenPressed(new cmdShoot(1.0));//change here used to be .4
 	spitBall->WhenReleased(new cmdShooterOff());
 
 	moveServoBall = new JoystickButton(driveStickL, L_FRONT_SIDE_LEFT_fMOVESERVOBALL);
@@ -63,12 +63,13 @@ OI::OI()
 	shootBall = new JoystickButton(driveStickL, L_THUMB_BUTTON_UP_fSHOOTBALL);
 	shootBall->WhenPressed(new cmdgrpLoadandShoot());
 
+	/*
 	angleTrajectorySetShoot = new JoystickButton(driveStickL, L_THUMB_BUTTON_RIGHT_fSHOOTPOSITION);
-	angleTrajectorySetShoot->WhenPressed(new cmdAngleShooterTrajectorySet(157)); //I believe shoot position is ~10 degrees past vertical
+	angleTrajectorySetShoot->WhenPressed(new cmdAngleShooterTrajectorySet(131)); //I believe shoot position is ~10 degrees past vertical
 	angleTrajectorySetShoot->WhenReleased(new cmdAngleShooterPreventBackdrive());
 
 	angleTrajectorySetDown = new JoystickButton(driveStickL, L_THUMB_BUTTON_LEFT_fDOWNPOSITION);
-	angleTrajectorySetDown->WhenPressed(new cmdAngleShooterTrajectorySet(219));  //Ideally this would be slightly off the ground for portcullis and cheval
+	angleTrajectorySetDown->WhenPressed(new cmdAngleShooterTrajectorySet(272));  //Ideally this would be slightly off the ground for portcullis and cheval
 	angleTrajectorySetDown->WhenReleased(new cmdAngleShooterPreventBackdrive());
 
 	shiftShooterUp = new JoystickButton(driveStickL, L_LEFT_SIDE_UP_fSHIFTSHOOTERUP);
@@ -87,7 +88,7 @@ OI::OI()
 	shiftShooterDownSlightly->WhenPressed(new cmdAngleShooterTrajectoryShift(1));
 	shiftShooterDownSlightly->WhenReleased(new cmdAngleShooterPreventBackdrive());
 
-
+*/
 
 
 	//RIGHT JOYSTICK------------------------------------------
@@ -95,14 +96,13 @@ OI::OI()
 	driveStickR = new Joystick(JOYSTICKRIGHT);
 
 	//Primary Movement Control for the Shooter
-	angleShooterUp = new JoystickButton(driveStickR, R_THUMB_BUTTON_UP_fANGLESHOOTERUP);
-	angleShooterUp->WhenPressed(new cmdAngleShooterMove(0.6));
-	angleShooterUp->WhenReleased(new cmdAngleShooterPreventBackdrive());
+	angleShooterUp = new JoystickButton(driveStickR, R_THUMB_BUTTON_DOWN_fANGLESHOOTERDOWN);
+	angleShooterUp->WhenPressed(new cmdAngleShooterMove(0.65));
+	angleShooterUp->WhenReleased(new cmdAngleShooterMove(0));
 
-	angleShooterDown = new JoystickButton(driveStickR, R_THUMB_BUTTON_DOWN_fANGLESHOOTERDOWN);
-	angleShooterDown->WhenPressed(new cmdAngleShooterMove(-0.6));
-	angleShooterDown->WhenReleased(new cmdAngleShooterPreventBackdrive());
-
+	angleShooterDown = new JoystickButton(driveStickR, R_THUMB_BUTTON_UP_fANGLESHOOTERUP);
+	angleShooterDown->WhenPressed(new cmdAngleShooterMove(-0.65));
+	angleShooterDown->WhenReleased(new cmdAngleShooterMove(0));
 
 	//Prevents shooter from falling down while playing defense or moving. Same thing on each side of R_THUMB_BUTTON for redundancy.
 	lockShooterUp= new JoystickButton(driveStickR, R_THUMB_BUTTON_RIGHT_fLOCKSHOOTERUP);
@@ -113,7 +113,7 @@ OI::OI()
 
 	//Miiiiggghhhht need these. The shooter one is useful for demoing the robot.
 	shooterFireFast= new JoystickButton(driveStickR, R_RIGHT_SIDE_UP_fSHOOTERFIREFAST);
-	shooterFireFast->WhenPressed(new cmdShoot(0.8));
+	shooterFireFast->WhenPressed(new cmdShoot(0.9));
 	shooterFireFast->WhenReleased(new cmdShooterOff());
 
 	feederFeedFast= new JoystickButton(driveStickR, R_RIGHT_SIDE_DOWN_fFEEDERFEEDFAST);

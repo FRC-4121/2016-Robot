@@ -10,7 +10,7 @@ AutoRoughTerrain::AutoRoughTerrain()
 		AddSequential (new Delay(1)); 								//waits a second
 		AddSequential (new cmdAngleShooterMove(0.1)); 				//locks shooter to upper position
 		AddSequential (new AutoDriveTalonsFastBackwards());			//drives forward at 60% speed
-		AddSequential (new Delay(3));								//drives for 3 seconds
+		AddSequential (new Delay(DELAY_MOVE_DEFINE));								//drives for 3 seconds
 		AddSequential (new AutoStop());								//stops
 
 }

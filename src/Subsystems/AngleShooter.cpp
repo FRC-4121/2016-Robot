@@ -86,7 +86,7 @@ void AngleShooter::PreventBackDrive()
 	float AngleShooterBackDriveSpeed=0;
 	float backDriveGain=0.000001;
 
-		if((((CommandBase::oi->getAngleShootEncoder()->GetVoltage())/0.001)*0.072)>=148)
+		if((((CommandBase::oi->getAngleShootEncoder()->GetVoltage())/0.001)*0.072)>=200)
 		{
 			//AngleShooterBackDriveSpeed= (backDriveGain*((((CommandBase::oi->getAngleShootEncoder()->GetVoltage())/0.001)*0.072)-(167)))+0.08;
 			AngleShooterBackDriveSpeed= 0.08;

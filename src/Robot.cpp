@@ -2,14 +2,17 @@
 #include "Commands/Command.h"
 #include "Commands/ExampleCommand.h"
 #include "CommandBase.h"
+#include <Commands/AutoRampartsShoot.h>
+#include <Commands/AutoRockWallShoot.h>
+#include <Commands/AutoRoughTerrainShoot.h>
+#include <Commands/AutoLowBarShoot.h>
+#include <Commands/AutoMoatShoot.h>
 #include "Commands/AutoLowBar.h"
-#include "Commands/AutoPortcullis.h"
-#include "Commands/AutoChevaldeFrise.h"
 #include "Commands/AutoRamparts.h"
 #include "Commands/AutoMoat.h"
 #include "Commands/AutoRockWall.h"
 #include "Commands/AutoRoughTerrain.h"
-
+#include <Commands/AutoStop.h>
 
 class Robot: public IterativeRobot
 {
@@ -58,13 +61,18 @@ public:
 		chooser= new SendableChooser();
 
 
-		chooser->AddDefault("Low Bar (Set For)", new AutoLowBar());
-		chooser->AddObject("Cheval de Frise (Set For)", new AutoChevaldeFrise());
-		chooser->AddObject("Portcullis (Set For)", new AutoPortcullis());
-		chooser->AddObject("Ramparts (Set Back)", new AutoRamparts());
-		chooser->AddObject("Moat (Set Back)", new AutoMoat());
-		chooser->AddObject("RockWall (Set Back)", new AutoRockWall());
-		chooser->AddObject("Rough Terrain (Set Back)", new AutoRoughTerrain());
+		chooser->AddDefault("Do Nothing", new AutoStop());
+		chooser->AddObject("Low Bar Shoot", new AutoLowBarShoot());
+		chooser->AddObject("Ramparts Shoot", new AutoRampartsShoot());
+		chooser->AddObject("Moat Shoot", new AutoMoatShoot());
+		chooser->AddObject("RockWall Shoot", new AutoRockWallShoot());
+		chooser->AddObject("Rough Terrain Shoot", new AutoRoughTerrainShoot());
+
+		chooser->AddObject("Low Bar", new AutoLowBar());
+		chooser->AddObject("Ramparts", new AutoRamparts());
+		chooser->AddObject("Moat", new AutoMoat());
+		chooser->AddObject("RockWall", new AutoRockWall());
+		chooser->AddObject("Rough Terrain", new AutoRoughTerrain());
 
 
 		SmartDashboard::PutData("Autonomous Modes", chooser);

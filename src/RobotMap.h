@@ -25,6 +25,11 @@
 #define JOYSTICKRIGHT (1)
 // #define XBOXCONTROLLER (2)
 
+#define DELAY_MOVE_DEFINE (2.5)
+#define DELAY_SPIN_DEFINE (1)
+
+
+
 typedef enum
 {
 	FRONT_LEFT_TALON = 0,
